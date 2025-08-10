@@ -13,8 +13,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #000;
-            color: #fff;
+            background: #fff;
+            color: #000;
             overflow-x: hidden;
         }
 
@@ -24,7 +24,7 @@
             top: 0;
             width: 100%;
             backdrop-filter: blur(20px);
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(255, 255, 255, 0.8);
             z-index: 1000;
             padding: 15px 0;
             transition: all 0.3s ease;
@@ -53,7 +53,7 @@
         }
 
         .nav-links a {
-            color: #fff;
+            color: #000;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
@@ -70,9 +70,10 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: radial-gradient(ellipse at center, #1a1a1a 0%, #000 100%);
+            background: radial-gradient(ellipse at center, #ffffff 0%, #f0f0f0 100%);
             position: relative;
             overflow: hidden;
+            perspective: 1000px;
         }
 
         .hero::before {
@@ -82,7 +83,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23333" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23ddd" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
             opacity: 0.1;
         }
 
@@ -99,12 +100,12 @@
             background: linear-gradient(45deg, #007AFF, #5856D6, #FF2D92);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: fadeInUp 1s ease-out;
+            animation: fadeInUp 1s ease-out, heroTilt 6s ease-in-out infinite 1s;
         }
 
         .hero p {
             font-size: 1.5rem;
-            color: #a1a1a6;
+            color: #555;
             margin-bottom: 40px;
             animation: fadeInUp 1s ease-out 0.3s both;
         }
@@ -132,7 +133,7 @@
         /* Services Section */
         .services {
             padding: 100px 0;
-            background: #0a0a0a;
+            background: #f5f5f7;
         }
 
         .container {
@@ -154,7 +155,7 @@
         .section-subtitle {
             text-align: center;
             font-size: 1.2rem;
-            color: #a1a1a6;
+            color: #555;
             margin-bottom: 60px;
         }
 
@@ -166,19 +167,19 @@
         }
 
         .service-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 20px;
             padding: 40px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transform-style: preserve-3d;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
             border-color: #007AFF;
-            box-shadow: 0 20px 40px rgba(0, 122, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .service-icon {
@@ -190,18 +191,18 @@
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 15px;
-            color: #fff;
+            color: #000;
         }
 
         .service-card p {
-            color: #a1a1a6;
+            color: #555;
             line-height: 1.6;
         }
 
         /* Trends Section */
         .trends {
             padding: 100px 0;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
         }
 
         .trends-grid {
@@ -211,16 +212,17 @@
         }
 
         .trend-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 15px;
             padding: 30px;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .trend-item:hover {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.05);
             transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .trend-item h4 {
@@ -229,10 +231,14 @@
             margin-bottom: 10px;
         }
 
+        .trend-item p {
+            color: #555;
+        }
+
         /* Contact Section */
         .contact {
             padding: 100px 0;
-            background: #000;
+            background: #f5f5f5;
             text-align: center;
         }
 
@@ -301,7 +307,7 @@
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            color: #a1a1a6;
+            color: #555;
             animation: bounce 2s infinite;
         }
 
@@ -314,6 +320,18 @@
             }
             60% {
                 transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @keyframes heroTilt {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            50% {
+                transform: rotateX(10deg) rotateY(-10deg);
+            }
+            100% {
+                transform: rotateX(0deg) rotateY(0deg);
             }
         }
     </style>
@@ -442,7 +460,7 @@
                     📧 Send Us a Message
                 </a>
                 
-                <p style="margin-top: 30px; color: #a1a1a6;">
+                <p style="margin-top: 30px; color: #555;">
                     Or reach us directly at: <strong style="color: #007AFF;">APPSTORYTELL@GMAIL.COM</strong>
                 </p>
             </div>
@@ -517,9 +535,9 @@ Best regards,
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.nav');
             if (window.scrollY > 100) {
-                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+                nav.style.background = 'rgba(255, 255, 255, 0.95)';
             } else {
-                nav.style.background = 'rgba(0, 0, 0, 0.8)';
+                nav.style.background = 'rgba(255, 255, 255, 0.8)';
             }
         });
 
